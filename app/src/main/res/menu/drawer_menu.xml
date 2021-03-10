@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/bmiNavigationItem"
+            android:icon="@drawable/ic_baseline_calculate_24"
+            android:title="Calculator"/>
+        <item android:id="@+id/calculatorItem"
+            android:icon="@drawable/ic_baseline_build_24"
+            android:title="Calculator"/>
+        <item android:id="@+id/businessItem"
+            android:icon="@drawable/ic_baseline_business_24"
+            android:title="Calculator"/>
+    </group>
+
+    <item android:title="Communication">
+        <menu>
+            <item android:id="@+id/settingsItem"
+                android:icon="@drawable/ic_baseline_build_24"
+                android:title="Calculator"/>
+            <item android:id="@+id/webServiceItem"
+                android:icon="@drawable/ic_baseline_business_24"
+                android:title="Calculator"/>
+        </menu>
+    </item>
+</menu>

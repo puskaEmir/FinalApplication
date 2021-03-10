@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FinalAcademy387</string>
+
+    <string name="intro_msg">Please, enter your height and weight and click on Calculate.</string>
+    <string name="height_label">Height (cm)</string>
+    <string name="weight_label">Weight (kg)</string>
+    <string name="calculateButtonText">Calculate</string>
+
+</resources>
