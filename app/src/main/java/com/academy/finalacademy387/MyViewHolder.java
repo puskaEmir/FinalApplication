@@ -7,9 +7,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+public class MyViewHolder extends RecyclerView.ViewHolder{
+    private CardView cardView;
     private ImageView imageView;
     private TextView titleTextView;
     private TextView descriptionTextView;
@@ -17,6 +19,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClic
 
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
+        cardView = itemView.findViewById(R.id.cardView);
         imageView = itemView.findViewById(R.id.imageView);
         titleTextView = itemView.findViewById(R.id.titleTextView);
         descriptionTextView = itemView.findViewById(R.id.descriptionTextView);
@@ -40,13 +43,6 @@ public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClic
 
     public void setItemClickListener(ItemClickListener itemClickListener) {
         this.itemClickListener = itemClickListener;
-    }
-
-
-
-    @Override
-    public void onClick(View view) {
-        Log.i("ON CLICK mora: ", " Nista bez ovog poziva");
-        this.itemClickListener.onItemClickListener(view, getLayoutPosition());
+        this.cardView.setOnClickListener(view -> itemClickListener.onItemClickListener(view, getLayoutPosition()));
     }
 }
