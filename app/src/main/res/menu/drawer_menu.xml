@@ -6,13 +6,16 @@
     <group android:checkableBehavior="single">
         <item android:id="@+id/bmiNavigationItem"
             android:icon="@drawable/ic_baseline_calculate_24"
-            android:title="Calculator"/>
+            android:title="BMI calculator"/>
         <item android:id="@+id/calculatorItem"
             android:icon="@drawable/ic_baseline_build_24"
             android:title="Calculator"/>
         <item android:id="@+id/businessItem"
             android:icon="@drawable/ic_baseline_business_24"
             android:title="Calculator"/>
+        <item android:id="@+id/communityItem"
+            android:icon="@drawable/ic_baseline_commute_24"
+            android:title="Community"/>
     </group>
 
     <item android:title="Communication">

@@ -43,6 +43,22 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
 
     public void setItemClickListener(ItemClickListener itemClickListener) {
         this.itemClickListener = itemClickListener;
-        this.cardView.setOnClickListener(view -> itemClickListener.onItemClickListener(view, getLayoutPosition()));
+        //CardClickListener cardClickListener = new CardClickListener(itemClickListener);
+        //Lambda sluzi kao shorctut za operator new ->
+        View.OnClickListener clickListener = view -> itemClickListener.onItemClickListener(view, getLayoutPosition());
+        this.cardView.setOnClickListener(clickListener);
     }
+
+  /*  private class CardClickListener implements View.OnClickListener{
+
+        private ItemClickListener itemClickListener;
+
+        public CardClickListener(ItemClickListener itemClickListener){
+            this.itemClickListener = itemClickListener;
+        }
+        @Override
+        public void onClick(View view) {
+            this.itemClickListener.onItemClickListener(view, getLayoutPosition());
+        }
+    }*/
 }

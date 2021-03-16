@@ -1,11 +1,17 @@
 package com.academy.finalacademy387;
 
 import androidx.annotation.ArrayRes;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,16 +30,38 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private MyAdapter adapter;
 
+    private DrawerLayout drawer;
+    private NavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        drawer = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        navigationView = findViewById(R.id.navigationView);
+        navigationView.bringToFront();
+        toggle.syncState();
+
+
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         adapter = new MyAdapter(this, loadRowModelList());
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(drawer.isDrawerOpen(GravityCompat.START)){
+            drawer.closeDrawer(GravityCompat.START);
+        }else{
+            super.onBackPressed();
+        }
     }
 
     private List<RowModel> loadRowModelList() {

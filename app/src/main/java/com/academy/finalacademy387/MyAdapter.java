@@ -41,10 +41,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        //RowModel -> instancu koja nosi podatke
         RowModel rowModel = rowModelList.get(position);
+        //ViewHolder -> prikazati podatke
         holder.setTitleText(rowModel.getTitle());
         holder.setDescriptionText(rowModel.getDescription());
         holder.setImageViewResourceId(rowModel.getImageResourceId());
+        //holder instancom -> instancnu metodu ili funkciju
+        //1.7 Anonymous inner type  LAMBDA mijenja NEW
+        // Kada LAMBDA ne radi ništa drugo nego samo poziva neku funkciju  ::
+        //ItemClickListener itemClickListener = this::onItemListen;
         holder.setItemClickListener(this::onItemListen);
     }
 
