@@ -9,4 +9,8 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <string name="bmiCalculator">BMI calculator</string>
+    <string name="books">Books</string>
+    <string name="calculator">Calculator</string>
+
 </resources>

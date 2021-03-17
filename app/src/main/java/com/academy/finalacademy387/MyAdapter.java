@@ -57,10 +57,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     private void onItemListen(View view, int position){
         RowModel model = rowModelList.get(position);
-        if(model.getTitle().equals("BMI calculator")){
+        if(model.getTitle().equals(view.getResources().getString(R.string.bmiCalculator))){
             Intent intent = new Intent(context, BmiActivity.class);
             context.startActivity(intent);
-        }else if(model.getTitle().equals("Calculator")){
+        }else if(model.getTitle().equals(view.getResources().getString(R.string.calculator))){
 
         }
     }

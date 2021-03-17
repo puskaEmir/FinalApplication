@@ -23,19 +23,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * <li>1. row.xml -> dizajnirali smo izgled jednog item unutar RecyclerView</li>
  * <li>2. RowModel -> mnoštvo objekata </li>
  * <li>3. MyViewHolder extends RecyclerView.ViewHolder</li>
  * <li>4. MyAdapter extends RecyclerView.Adapter<MyViewHolder></li>
  *
  * <p></p>
+ *  HttpUrlConnection
  *
+ *  HttpsURLConnection
+ *
+ *  URL url = new Url("httt://foog.....")
+ *  HttpUrlConnection connection = url.openConnection();
  * <li></li>
- *
- *
  */
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private MyAdapter adapter;
@@ -55,8 +57,8 @@ public class MainActivity extends AppCompatActivity  {
         drawer.addDrawerListener(toggle);
         navigationView = findViewById(R.id.navigationView);
         navigationView.bringToFront();
+        navigationView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
         toggle.syncState();
-
 
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -67,11 +69,25 @@ public class MainActivity extends AppCompatActivity  {
     }
 
 
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.bmiNavigationItem:
+                Intent intent = new Intent(this, BmiActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.books:
+
+                break;
+
+        }
+        return true;
+    }
+
     @Override
     public void onBackPressed() {
-        if(drawer.isDrawerOpen(GravityCompat.START)){
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        }else{
+        } else {
             super.onBackPressed();
         }
     }
@@ -80,7 +96,8 @@ public class MainActivity extends AppCompatActivity  {
         List<RowModel> rowModels = new ArrayList<>();
 
         RowModel bmiCalculator = new RowModel();
-        bmiCalculator.setTitle("BMI calculator");
+
+        bmiCalculator.setTitle(getResources().getString(R.string.bmiCalculator));
         bmiCalculator.setDescription("Body Mass Index calculator je dobar indikator vašeg zdravlja...");
         bmiCalculator.setImageResourceId(R.drawable.bmi);
         rowModels.add(bmiCalculator);
