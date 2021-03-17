@@ -1,6 +1,8 @@
 package com.academy.finalacademy387;
 
 import androidx.annotation.ArrayRes;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -9,8 +11,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import com.academy.finalacademy387.bmi.BmiActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -23,9 +29,13 @@ import java.util.List;
  * <li>3. MyViewHolder extends RecyclerView.ViewHolder</li>
  * <li>4. MyAdapter extends RecyclerView.Adapter<MyViewHolder></li>
  *
+ * <p></p>
+ *
+ * <li></li>
+ *
  *
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     private RecyclerView recyclerView;
     private MyAdapter adapter;
@@ -39,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -54,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         adapter = new MyAdapter(this, loadRowModelList());
         recyclerView.setAdapter(adapter);
     }
+
 
     @Override
     public void onBackPressed() {
