@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.academy.finalacademy387.bmi.BmiActivity;
+import com.academy.finalacademy387.book.BookActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -76,7 +77,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.books:
-
+                Intent bookIntent = new Intent(this, BookActivity.class);
+                startActivity(bookIntent);
                 break;
 
         }
